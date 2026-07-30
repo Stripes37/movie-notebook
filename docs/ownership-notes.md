@@ -17,3 +17,24 @@ entire features or modify the whole application at once.
 - Terminal: Command Prompt
 - Python version: Python 3.12.4
 - Virtual environment: `.venv`
+
+## How to launch the application
+
+1. Open Command Prompt in the project folder.
+2. Activate the virtual environment:
+
+   `.venv\Scripts\activate.bat`
+
+3. Start the application:
+
+   `python -m streamlit run app.py`
+
+4. Open `http://localhost:8501` if the browser does not open automatically.
+5. Press `Ctrl+C` in Command Prompt to stop the application.
+
+## Current application structure
+
+- `app.py` is the Streamlit entry point.
+- Streamlit runs the application on a local development server.
+- The application currently displays a title and description.
+- No database or film-management features have been implemented yet.
