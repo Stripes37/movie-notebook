@@ -38,3 +38,49 @@ entire features or modify the whole application at once.
 - Streamlit runs the application on a local development server.
 - The application currently displays a title and description.
 - No database or film-management features have been implemented yet.
+
+## Day 2: Initial database layer
+
+### Database location
+
+The SQLite database is stored at:
+
+`data/movie_notebook.db`
+
+The database is excluded from Git because it contains local application data
+and can be recreated by the application.
+
+### Films table
+
+The `films` table contains:
+
+- `id`: A unique integer assigned by SQLite
+- `title`: The film title
+- `release_year`: The film's release year
+- `created_at`: The time the film was inserted
+
+### Database functions
+
+- `get_connection()` opens the SQLite database and configures query results so
+  columns can be accessed by name.
+- `initialize_database()` creates the `films` table if it does not already
+  exist.
+- `add_film()` inserts a film using a parameterized SQL query and returns its
+  new ID.
+- `get_films()` retrieves all films and returns them as dictionaries.
+
+### Current workflow
+
+1. `app.py` starts.
+2. `app.py` calls `initialize_database()`.
+3. SQLite creates the database and table if necessary.
+4. `add_film()` can insert a film.
+5. `get_films()` can retrieve saved films.
+
+### Current limitations
+
+- There is no Streamlit film form.
+- Film values are not yet validated.
+- Duplicate films are allowed.
+- Films cannot be edited or deleted.
+- Database errors are not yet displayed through the interface.
